@@ -55,6 +55,7 @@ pipeline {
                     echo "Deploying to Netlify... $NETLIFY_SITE_ID"  
                     netlify status
                     netlify deploy --prod --dir=build 
+                    echo Done!
                 '''
             }
         }
