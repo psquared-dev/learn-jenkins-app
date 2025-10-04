@@ -46,7 +46,7 @@ pipeline {
 
         }
 
-        stage("Deploy"){
+        stage("Staging Deploy"){
             steps {
                 echo "Deploying to server..."
                 sh '''
@@ -54,7 +54,7 @@ pipeline {
                     netlify --version
                     echo "Deploying to Netlify... $NETLIFY_SITE_ID"  
                     netlify status
-                    netlify deploy --prod --dir=build 
+                    netlify deploy --dir=build 
                     echo Done!
                 '''
             }
