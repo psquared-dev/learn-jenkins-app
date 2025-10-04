@@ -6,6 +6,10 @@ pipeline {
         }
     }
 
+    environment {
+        NETLIFY_PROJECT_ID = "72ef1930-26cf-4a65-95cb-13d383e323f9"
+    }
+
     stages {
         stage('Build') {
             steps {
@@ -45,8 +49,9 @@ pipeline {
             steps {
                 echo "Deploying to server..."
                 sh '''
-                    npm install -g netlify-cli
+                    npm install -g netlify-cli@20.1.1
                     netlify --version
+                    echo "Deploying to Netlify... $NETLIFY_PROJECT_ID"  
                 '''
             }
         }
