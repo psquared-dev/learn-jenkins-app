@@ -40,6 +40,16 @@ pipeline {
             }
 
         }
+
+        stage("Deploy"){
+            steps {
+                echo "Deploying to server..."
+                sh '''
+                    npm install -g netlify-cli
+                    netlify --version
+                '''
+            }
+        }
     }
 
     post{
